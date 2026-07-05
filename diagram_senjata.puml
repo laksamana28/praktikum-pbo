@@ -1,0 +1,34 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class Senjata {
+  + nama : str
+  --
+  + __init__(nama)
+  + info_nama()
+  + {abstract} serang()
+  + {abstract} daya_tahan : property
+}
+
+class Pedang {
+  + panjang_bilah : float
+  - _daya_tahan : int
+  --
+  + __init__(nama, panjang_bilah)
+  + serang()
+  + daya_tahan : property (get/set)
+}
+
+class Panah {
+  + jumlah_anak_panah : int
+  --
+  + __init__(nama, jumlah_anak_panah)
+  + serang()
+  + ammo : property (get/set)
+  + daya_tahan : property (get)
+}
+
+Senjata <|-- Pedang
+Senjata <|-- Panah
+
+@enduml
